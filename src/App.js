@@ -15,7 +15,7 @@ function App() {
             <Header />
             <div className='grid p-16 justify-center items-center text-gray-900'>
                 {listings.map((listing) => (
-                    <p>{listing.company}</p>
+                    <p key={listing.id}>{listing.company}</p>
                 ))}
             </div>
         </div>
