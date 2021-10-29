@@ -2,8 +2,11 @@ import Image from './Image';
 import Details from './Details';
 
 const JobCard = ({ listing, filtering }) => {
+    const rules = `bg-white ${
+        listing.featured ? 'featured-item' : ''
+    } max-w-4xl p-4 mb-10 shadow-lg flex justify-center items-center`;
     return (
-        <div>
+        <div className={rules}>
             <Image url={listing.logo} desc={listing.company} />
             <Details
                 company={listing.company}

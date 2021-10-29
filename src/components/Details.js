@@ -14,7 +14,7 @@ const Details = ({
         filter_f(skill);
     }
 
-    const Skills = (skill) => (
+    const Skills = ({ skill }) => (
         <div className='tag rounded-md py-1 px-2 m-2'>
             <button onClick={() => handleFilter(skill)}>{skill}</button>
         </div>
