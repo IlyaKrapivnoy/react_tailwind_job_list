@@ -1,4 +1,6 @@
-const Details = ({
+import React from 'react';
+
+function Details({
     company,
     recent,
     featured,
@@ -9,48 +11,49 @@ const Details = ({
     languages,
     tools,
     filter_f,
-}) => {
-    function handleFilter(skill) {
+}) {
+    function handleClick(skill) {
         filter_f(skill);
     }
 
     const Skills = ({ skill }) => (
-        <div className='tag rounded-md py-1 px-2 m-2'>
-            <button onClick={() => handleFilter(skill)}>{skill}</button>
+        <div className='tag rounded-md p-1 px-2 m-2'>
+            <button onClick={() => handleClick(skill)}>{skill}</button>
         </div>
     );
+
     return (
         <>
-            <div className='flex px-4 py-2'>
+            <div className='flex-1 px-4 py-2'>
                 <div className='flex flex-grow'>
                     <p className='mr-2 flex justify-center items-center'>
                         {company}
                     </p>
                     {recent ? (
-                        <p className='tag new-tag rounded-xl px-2 py-1 mr-1'>
+                        <p className='tags new-tag rounded-xl px-2 p-1 mr-1'>
                             new
                         </p>
                     ) : null}
                     {featured ? (
-                        <p className='tag new-tag rounded px-2 py-1'>
-                            Featured
+                        <p className='tags new-tag rounded-xl px-2 p-1'>
+                            featured
                         </p>
                     ) : null}
                 </div>
                 <p className='main-heading my-2'>{position}</p>
                 <div className='flex flex-grow'>
-                    <small className='text-gray-900'>{postedAt}</small>
-                    <small className='text-gray-900'>{contract}</small>
-                    <small className='text-gray-900'>{location}</small>
+                    <small className='text-gray-400'>{postedAt}</small>
+                    <small className='text-gray-400'>{contract}</small>
+                    <small className='text-gray-400'>{location}</small>
                 </div>
             </div>
-            <div className='tag flex flex-1 justify-center items-end'>
+            <div className='tags flex flex-1 justify-center items-end'>
                 {[...languages, ...tools].map((skill) => (
-                    <Skills skill={skill} />
+                    <Skills skill={skill} key={skill} />
                 ))}
             </div>
         </>
     );
-};
+}
 
 export default Details;
