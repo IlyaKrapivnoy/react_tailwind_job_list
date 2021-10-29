@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Header from './components/Header';
 import ListingsData from './data/data.json';
 
 function App() {
@@ -9,7 +10,16 @@ function App() {
     }, []);
     console.log('listings', listings);
 
-    return <div className='App'>Hello World</div>;
+    return (
+        <div>
+            <Header />
+            <div className='grid p-16 justify-center items-center text-gray-900'>
+                {listings.map((listing) => (
+                    <p>{listing.company}</p>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default App;
