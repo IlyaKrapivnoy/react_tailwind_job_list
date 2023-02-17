@@ -29,16 +29,16 @@ function Details({
                     <p className='mr-2 flex justify-center items-center'>
                         {company}
                     </p>
-                    {recent ? (
+                    {recent && (
                         <p className='tags new-tag rounded-xl px-2 p-1 mr-1'>
                             new
                         </p>
-                    ) : null}
-                    {featured ? (
+                    )}
+                    {featured && (
                         <p className='tags new-tag rounded-xl px-2 p-1'>
                             featured
                         </p>
-                    ) : null}
+                    )}
                 </div>
                 <p className='main-heading my-2'>{position}</p>
                 <div className='flex flex-grow'>
