@@ -11,7 +11,6 @@ function App() {
     useEffect(() => {
         setListings(ListingsData);
     }, []);
-    console.log('listings', listings);
 
     const filterListings = (filter_by = '') => {
         if (filters.includes(filter_by) && filter_by !== '')
@@ -24,10 +23,10 @@ function App() {
     };
 
     return (
-        <div>
+        <>
             <Header />
             <div className='grid p-16 justify-center items-center text-gray-900'>
-                {listings.map((listing) => (
+                {listings?.map((listing) => (
                     <JobCard
                         listing={listing}
                         key={listing.id}
@@ -35,7 +34,7 @@ function App() {
                     />
                 ))}
             </div>
-        </div>
+        </>
     );
 }
 
